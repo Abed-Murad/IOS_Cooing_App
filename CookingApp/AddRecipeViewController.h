@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  AddRecipeViewController.h
 //  CookingApp
 //
 //  Created by Abed on 1/1/19.
@@ -8,8 +8,6 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController<UICollectionViewDataSource>
-
+@interface AddRecipeViewController : UIViewController
 
 @end
-

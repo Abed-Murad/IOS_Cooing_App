@@ -1,5 +1,5 @@
 //
-//  ViewController.h
+//  RecipeItemCell.h
 //  CookingApp
 //
 //  Created by Abed on 1/1/19.
@@ -8,8 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface ViewController : UIViewController<UICollectionViewDataSource>
-
+@interface RecipeItemCell : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UILabel *recipeitemLabel;
 
 @end
-
