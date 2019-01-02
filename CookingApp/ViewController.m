@@ -60,6 +60,10 @@
     NSString *selectedRecipe = [self.recipeArray objectAtIndex:indexPath.row];
     NSLog(@"Selected:%@" ,selectedRecipe);
     
+    RecipeDetailsController *recipeDetailsController = [self.storyboard instantiateViewControllerWithIdentifier:@"RecipeDetailsId"];
+    
+    [self.navigationController pushViewController:recipeDetailsController animated:YES];
+    
     
 }
 /*CollectionView DataSource and Delegate Protocals Methods End*/
