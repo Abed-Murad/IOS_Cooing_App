@@ -9,6 +9,7 @@
 #import "ViewController.h"
 #import "RecipeItemCell.h"
 #import "AddRecipeViewController.h"
+#import "RecipeDetailsController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;

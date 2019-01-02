@@ -16,6 +16,7 @@
 		B53EA3E021DC13BC00546A34 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B53EA3DE21DC13BC00546A34 /* LaunchScreen.storyboard */; };
 		B53EA3E921DC176300546A34 /* AddRecipeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53EA3E821DC176300546A34 /* AddRecipeViewController.m */; };
 		B53EA3EC21DC1A3300546A34 /* RecipeItemCell.m in Sources */ = {isa = PBXBuildFile; fileRef = B53EA3EB21DC1A3300546A34 /* RecipeItemCell.m */; };
+		B53EA3EF21DC462200546A34 /* RecipeDetailsController.m in Sources */ = {isa = PBXBuildFile; fileRef = B53EA3EE21DC462200546A34 /* RecipeDetailsController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -34,6 +35,8 @@
 		B53EA3E821DC176300546A34 /* AddRecipeViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AddRecipeViewController.m; sourceTree = "<group>"; };
 		B53EA3EA21DC1A3300546A34 /* RecipeItemCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeItemCell.h; sourceTree = "<group>"; };
 		B53EA3EB21DC1A3300546A34 /* RecipeItemCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeItemCell.m; sourceTree = "<group>"; };
+		B53EA3ED21DC462200546A34 /* RecipeDetailsController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = RecipeDetailsController.h; sourceTree = "<group>"; };
+		B53EA3EE21DC462200546A34 /* RecipeDetailsController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = RecipeDetailsController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -72,6 +75,8 @@
 				B53EA3D421DC13BC00546A34 /* ViewController.m */,
 				B53EA3E721DC176300546A34 /* AddRecipeViewController.h */,
 				B53EA3E821DC176300546A34 /* AddRecipeViewController.m */,
+				B53EA3ED21DC462200546A34 /* RecipeDetailsController.h */,
+				B53EA3EE21DC462200546A34 /* RecipeDetailsController.m */,
 				B53EA3EA21DC1A3300546A34 /* RecipeItemCell.h */,
 				B53EA3EB21DC1A3300546A34 /* RecipeItemCell.m */,
 				B53EA3D621DC13BC00546A34 /* Main.storyboard */,
@@ -165,6 +170,7 @@
 				B53EA3D521DC13BC00546A34 /* ViewController.m in Sources */,
 				B53EA3D221DC13BC00546A34 /* AppDelegate.m in Sources */,
 				B53EA3EC21DC1A3300546A34 /* RecipeItemCell.m in Sources */,
+				B53EA3EF21DC462200546A34 /* RecipeDetailsController.m in Sources */,
 				B53EA3DB21DC13BC00546A34 /* CookingApp.xcdatamodeld in Sources */,
 				B53EA3CF21DC13BC00546A34 /* main.m in Sources */,
 				B53EA3E921DC176300546A34 /* AddRecipeViewController.m in Sources */,
