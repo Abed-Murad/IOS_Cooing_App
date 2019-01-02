@@ -42,14 +42,14 @@
     
     if (imageCount < 1) {
         [self.firstImageView setImage:(image)];
-        imageCount = 1 ;
-    }else if (imageCount == 2){
+        imageCount ++ ;
+    }else if (imageCount < 2){
         [self.secondImageVIew setImage:(image)];
-        imageCount  = 2 ;
-    }else if (imageCount == 3){
+        imageCount ++ ;
+    }else if (imageCount < 3){
         [self.thiredImageView setImage:(image)];
         self.AddImagesBtn.enabled = NO;
-        imageCount = 3 ;
+        imageCount ++ ;
     }
     
     [picker dismissViewControllerAnimated:YES completion:nil];

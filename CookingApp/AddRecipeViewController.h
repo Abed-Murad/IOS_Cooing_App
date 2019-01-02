@@ -7,7 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
-static int imageCount = 1;
+static int imageCount = 0;
 
 @interface AddRecipeViewController : UIViewController<UIImagePickerControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *firstImageView;

@@ -65,6 +65,13 @@
                                 </constraints>
                                 <state key="normal" title="Create"/>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lp5-WT-qhA">
+                                <rect key="frame" x="19" y="237" width="81" height="30"/>
+                                <state key="normal" title="Add Images"/>
+                                <connections>
+                                    <action selector="onAddImagesBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cPt-17-wZT"/>
+                                </connections>
+                            </button>
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="boG-CQ-QNs">
                                 <rect key="frame" x="19" y="299" width="82" height="90"/>
                             </imageView>
@@ -74,13 +81,6 @@
                             <imageView userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="Vo5-PA-UQz">
                                 <rect key="frame" x="199" y="299" width="81" height="90"/>
                             </imageView>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Lp5-WT-qhA">
-                                <rect key="frame" x="19" y="237" width="81" height="30"/>
-                                <state key="normal" title="Add Images"/>
-                                <connections>
-                                    <action selector="onAddImagesBtnClicked:" destination="BYZ-38-t0r" eventType="touchUpInside" id="cPt-17-wZT"/>
-                                </connections>
-                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
                         <constraints>
