@@ -14,6 +14,7 @@
 
 @implementation AddRecipeViewController
 
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
@@ -38,7 +39,19 @@
     UIImage *image = [info valueForKey:UIImagePickerControllerOriginalImage];
     //Or you can get the image url from AssetsLibrary
     NSURL *path = [info valueForKey:UIImagePickerControllerReferenceURL];
-    [self.firstImageView setImage:(image)];
+    
+    if (imageCount < 1) {
+        [self.firstImageView setImage:(image)];
+        imageCount = 1 ;
+    }else if (imageCount == 2){
+        [self.secondImageVIew setImage:(image)];
+        imageCount  = 2 ;
+    }else if (imageCount == 3){
+        [self.thiredImageView setImage:(image)];
+        self.AddImagesBtn.enabled = NO;
+        imageCount = 3 ;
+    }
+    
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
