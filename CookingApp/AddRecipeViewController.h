@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddRecipeViewController : UIViewController
+@interface AddRecipeViewController : UIViewController<UIImagePickerControllerDelegate>
+@property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
 
 @end
