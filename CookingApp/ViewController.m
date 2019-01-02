@@ -55,16 +55,20 @@
 }
 //On CollectionView Item Click Listener
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    //Get The Recipe Name
     NSString *selectedRecipe = [self.recipeArray objectAtIndex:indexPath.row];
     NSLog(@"Selected:%@" ,selectedRecipe);
     
-    AddRecipeViewController *addRecipeController = [self.storyboard instantiateViewControllerWithIdentifier:@"addRecipeId"];
-                                                    
-    [self.navigationController pushViewController:addRecipeController animated:YES];
-                                                    
-
     
 }
 /*CollectionView DataSource and Delegate Protocals Methods End*/
+
+- (IBAction)onAddClcik:(id)sender {
+    //Open The New Layout
+    AddRecipeViewController *addRecipeController = [self.storyboard instantiateViewControllerWithIdentifier:@"addRecipeId"];
+    
+    [self.navigationController pushViewController:addRecipeController animated:YES];
+}
+
 
 @end

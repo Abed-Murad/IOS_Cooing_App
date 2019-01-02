@@ -181,7 +181,13 @@
                             <constraint firstItem="YaD-NV-vDe" firstAttribute="leading" secondItem="UiC-DC-QGQ" secondAttribute="leading" id="iiB-jV-ZgD"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="jnJ-un-z3F"/>
+                    <navigationItem key="navigationItem" title="View Controller" id="a2Y-9v-FnH">
+                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="f5z-q2-rpv">
+                            <connections>
+                                <action selector="onAddClcik:" destination="FTc-8E-fVk" id="KXr-mj-zKG"/>
+                            </connections>
+                        </barButtonItem>
+                    </navigationItem>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="300" height="600"/>
                     <connections>
