@@ -8,6 +8,7 @@
 
 #import "ViewController.h"
 #import "RecipeItemCell.h"
+#import "AddRecipeViewController.h"
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
@@ -19,7 +20,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    [[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
     //CoolectionView Start
     self.collectionView.delegate = self ;
     self.recipeArray = @[@"Food1" , @"Food2" , @"Food3"];
@@ -28,13 +29,16 @@
 }
 
 
-//CollectionView DataSource and Delegate Protocals Methods Start
+/*CollectionView DataSource and Delegate Protocals Methods Start*/
+
+// Collection View Size Based on the Array Size
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
 {
     return self.recipeArray.count;
 }
 
+//OnCollectionView Item Create
 - (__kindof UICollectionViewCell *) collectionView:(UICollectionView *)
    collectionView cellForItemAtIndexPath:(nonnull NSIndexPath *)indexPath{
    
@@ -49,10 +53,18 @@
     //retrun the cell
     return cell;
 }
+//On CollectionView Item Click Listener
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     NSString *selectedRecipe = [self.recipeArray objectAtIndex:indexPath.row];
     NSLog(@"Selected:%@" ,selectedRecipe);
+    
+    AddRecipeViewController *addRecipeController = [self.storyboard instantiateViewControllerWithIdentifier:@"addRecipeId"];
+                                                    
+    [self.navigationController pushViewController:addRecipeController animated:YES];
+                                                    
+
+    
 }
-//CollectionView DataSource and Delegate Protocals Methods End
+/*CollectionView DataSource and Delegate Protocals Methods End*/
 
 @end
