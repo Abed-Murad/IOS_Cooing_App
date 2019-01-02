@@ -19,12 +19,16 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    
+    //CoolectionView Start
+    self.collectionView.delegate = self ;
     self.recipeArray = @[@"Food1" , @"Food2" , @"Food3"];
     [self.collectionView reloadData];
+    //CollectionView End
 }
 
 
-//CollctionViewDataSource
+//CollectionView DataSource and Delegate Protocals Methods Start
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
 {
@@ -45,4 +49,10 @@
     //retrun the cell
     return cell;
 }
+- (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    NSString *selectedRecipe = [self.recipeArray objectAtIndex:indexPath.row];
+    NSLog(@"Selected:%@" ,selectedRecipe);
+}
+//CollectionView DataSource and Delegate Protocals Methods End
+
 @end
