@@ -7,13 +7,21 @@
 //
 
 #import "AddRecipeViewController.h"
+#import "CoreData/Coredata.h"
 
 @interface AddRecipeViewController ()
 
 @end
 
 @implementation AddRecipeViewController
-
+- (NSManagedObjectContext *)managedObjectContext {
+    NSManagedObjectContext *context = nil;
+    id delegate = [[UIApplication sharedApplication] delegate];
+    if ([delegate performSelector:@selector(managedObjectContext)]) {
+        context = [delegate managedObjectContext];
+    }
+    return context;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -55,6 +63,37 @@
     [picker dismissViewControllerAnimated:YES completion:nil];
 }
 
+- (IBAction)onCreateBtnClicked:(id)sender {
+    NSManagedObjectContext *context = [self managedObjectContext];
+    
+    // Create a new managed object
+    NSManagedObject *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
+    [newRecipe setValue:self.nameTextView.text forKey:@"name"];
+    [newRecipe setValue:self.ingradientsTextView.text forKey:@"ingredients"];
+    [newRecipe setValue:self.quantityTextView.text forKey:@"quantites"];
+    [newRecipe setValue:self.nopTextView.text forKey:@"nop"];
+    [newRecipe setValue:self.caloriesTextView.text forKey:@"calories"];
+    [newRecipe setValue:@"firstImage" forKey:@"tags"];
+    [newRecipe setValue:@"secondImage"forKey:@"first_photo"];
+    [newRecipe setValue:@"thirdImage" forKey:@"second_photo"];
+    
+//    [newRecipe setValue:self.thiredImageView.image forKey:@"third_photo"];
+//    [newRecipe setValue:self.firstImageView.image forKey:@"first_photo"];
+//    [newRecipe setValue:self.secondImageVIew.image forKey:@"second_photo"];
+//    [newRecipe setValue:self.thiredImageView.image forKey:@"third_photo"];
+    
+    
+    
+    NSError *error = nil;
+    // Save the object to persistent store
+    if (![context save:&error]) {
+        NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
+    }
+    
+    [self dismissViewControllerAnimated:YES completion:nil];
+    
+
+}
 
 
 
