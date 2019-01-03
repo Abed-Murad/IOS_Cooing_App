@@ -1,7 +1,16 @@
 <?xml version="1.0" encoding="UTF-8" standalone="yes"?>
 <model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="9057" systemVersion="14F2511" minimumToolsVersion="Automatic">
-    <entity name="Entity" syncable="YES"/>
+    <entity name="Reicpe" syncable="YES">
+        <attribute name="calories" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="first_photo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="ingredients" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="nop" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="quantites" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="second_photo" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="tags" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="third_photo" optional="YES" attributeType="String" syncable="YES"/>
+    </entity>
     <elements>
-        <element name="Entity" positionX="-45" positionY="0" width="128" height="45"/>
+        <element name="Reicpe" positionX="-45" positionY="0" width="128" height="165"/>
     </elements>
 </model>

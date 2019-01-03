@@ -13,7 +13,15 @@ static int imageCount = 0;
 @property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
 @property (weak, nonatomic) IBOutlet UIImageView *secondImageVIew;
 @property (weak, nonatomic) IBOutlet UIImageView *thiredImageView;
+
 @property (weak, nonatomic) IBOutlet UIButton *AddImagesBtn;
+
+@property (weak, nonatomic) IBOutlet UITextField *tagsTextView;
+@property (weak, nonatomic) IBOutlet UITextField *caloriesTextView;
+@property (weak, nonatomic) IBOutlet UITextField *nopTextView;
+@property (weak, nonatomic) IBOutlet UITextField *quantityTextView;
+@property (weak, nonatomic) IBOutlet UITextField *ingradientsTextView;
+@property (weak, nonatomic) IBOutlet UITextField *nameTextView;
 
 @end
 
