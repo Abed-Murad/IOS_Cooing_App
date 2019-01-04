@@ -10,5 +10,6 @@
 
 @interface RecipeItemCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *recipeitemLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *recipeImage;
 
 @end

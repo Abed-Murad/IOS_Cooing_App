@@ -73,16 +73,23 @@
     [newRecipe setValue:self.quantityTextView.text forKey:@"quantites"];
     [newRecipe setValue:self.nopTextView.text forKey:@"nop"];
     [newRecipe setValue:self.caloriesTextView.text forKey:@"calories"];
-    [newRecipe setValue:@"firstImage" forKey:@"tags"];
-    [newRecipe setValue:@"secondImage"forKey:@"first_photo"];
-    [newRecipe setValue:@"thirdImage" forKey:@"second_photo"];
     
-//    [newRecipe setValue:self.thiredImageView.image forKey:@"third_photo"];
+//    [newRecipe setValue:@"firstImage" forKey:@"tags"];
+//    [newRecipe setValue:@"secondImage"forKey:@"first_photo"];
+//    [newRecipe setValue:@"thirdImage" forKey:@"second_photo"];
+    
+
 //    [newRecipe setValue:self.firstImageView.image forKey:@"first_photo"];
 //    [newRecipe setValue:self.secondImageVIew.image forKey:@"second_photo"];
 //    [newRecipe setValue:self.thiredImageView.image forKey:@"third_photo"];
     
+    NSData *imageData1 = UIImagePNGRepresentation(self.firstImageView.image);
+    NSData *imageData2 = UIImagePNGRepresentation(self.secondImageVIew.image);
+    NSData *imageData3 = UIImagePNGRepresentation(self.thiredImageView.image);
     
+    [newRecipe setValue:imageData1 forKey:@"first_photo"];
+    [newRecipe setValue:imageData2 forKey:@"second_photo"];
+    [newRecipe setValue:imageData3 forKey:@"third_photo"];
     
     NSError *error = nil;
     // Save the object to persistent store

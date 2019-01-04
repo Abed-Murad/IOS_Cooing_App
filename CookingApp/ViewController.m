@@ -10,14 +10,18 @@
 #import "RecipeItemCell.h"
 #import "AddRecipeViewController.h"
 #import "RecipeDetailsController.h"
+#import "CoreData/Coredata.h"
+
 
 @interface ViewController ()
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
-@property (strong, nonatomic) NSArray *recipeArray;
+@property (strong) NSMutableArray * myObjects;
+
 @end
 
 @implementation ViewController
+
 - (NSManagedObjectContext *)managedObjectContext {
     NSManagedObjectContext *context = nil;
     id delegate = [[UIApplication sharedApplication] delegate];
@@ -26,12 +30,24 @@
     }
     return context;
 }
+
+- (void)viewDidAppear:(BOOL)animated
+{
+    [super viewDidAppear:animated];
+    
+    // Fetch the devices from persistent data store
+    NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
+    NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
+    self.myObjects = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
+    
+    [self.collectionView reloadData];
+}
+
 - (void)viewDidLoad {
     [super viewDidLoad];
     [[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
     //CoolectionView Start
     self.collectionView.delegate = self ;
-    self.recipeArray = @[@"Food1" , @"Food2" , @"Food3"];
     [self.collectionView reloadData];
     //CollectionView End
 }
@@ -43,7 +59,7 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
 {
-    return self.recipeArray.count;
+    return self.myObjects.count;
 }
 
 //OnCollectionView Item Create
@@ -54,17 +70,22 @@
     RecipeItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifer forIndexPath:indexPath];
     
     //get The Recipe Name
-    NSString *recipeName = [self.recipeArray objectAtIndex:indexPath.row];
+    NSManagedObject *device = [self.myObjects objectAtIndex:indexPath.row];
+    NSString *recipeName =[device valueForKey:@"name"];
+    
+    UIImage *image = [UIImage imageWithData:[device valueForKey:@"first_photo"]];
+    
     //Populate the Cell
     cell.recipeitemLabel.text = recipeName ;
+    cell.recipeImage.image = image;
     cell.backgroundColor = [UIColor redColor];
     //retrun the cell
     return cell;
 }
-//On CollectionView Item Click Listener
+//On CollectionView Item    Click Listener
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //Get The Recipe Name
-    NSString *selectedRecipe = [self.recipeArray objectAtIndex:indexPath.row];
+    NSString *selectedRecipe = [self.myObjects objectAtIndex:indexPath.row];
     NSLog(@"Selected:%@" ,selectedRecipe);
     
     RecipeDetailsController *recipeDetailsController = [self.storyboard instantiateViewControllerWithIdentifier:@"RecipeDetailsId"];
