@@ -25,10 +25,18 @@
     NSString *tags =[self.recipe valueForKey:@"tags"];
     
     UIImage *firstImage = [UIImage imageWithData:[self.recipe valueForKey:@"first_photo"]];
-    UIImage *secondImage = [UIImage imageWithData:[self.recipe valueForKey:@"second_photo"]];
-    UIImage *thirdImage = [UIImage imageWithData:[self.recipe valueForKey:@"third_photo"]];
+//    UIImage *secondImage = [UIImage imageWithData:[self.recipe valueForKey:@"second_photo"]];
+//    UIImage *thirdImage = [UIImage imageWithData:[self.recipe valueForKey:@"third_photo"]];
     
     
+    self.nameTextView.text = name  ;
+    self.ingredientsTextView.text = ingredients ;
+    self.quantitiesTextView.text = quantites;
+    self.nopTextView.text = nop ;
+    self.caloriesTextView.text = calories ;
+    self.tagsTextView.text = tags ;
+    [self.firstImageView setImage:(firstImage)];
+
     
     
 
