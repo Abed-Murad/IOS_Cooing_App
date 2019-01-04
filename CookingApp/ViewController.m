@@ -85,11 +85,12 @@
 //On CollectionView Item    Click Listener
 - (void) collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     //Get The Recipe Name
-    NSString *selectedRecipe = [self.myObjects objectAtIndex:indexPath.row];
-    NSLog(@"Selected:%@" ,selectedRecipe);
+//    NSString *selectedRecipe = [self.myObjects objectAtIndex:indexPath.row];
+//    NSLog(@"Selected:%@" ,selectedRecipe);
     
     RecipeDetailsController *recipeDetailsController = [self.storyboard instantiateViewControllerWithIdentifier:@"RecipeDetailsId"];
-    
+    self.selectedRecipe = [self.myObjects objectAtIndex:indexPath.row];
+    recipeDetailsController.recipe = self.selectedRecipe;
     [self.navigationController pushViewController:recipeDetailsController animated:YES];
     
     
@@ -102,6 +103,7 @@
     
     [self.navigationController pushViewController:addRecipeController animated:YES];
 }
+
 
 
 @end
