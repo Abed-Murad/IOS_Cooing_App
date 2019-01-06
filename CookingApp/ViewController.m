@@ -114,12 +114,19 @@
         [self.filteredObjcets removeAllObjects];
         for (NSManagedObject *recipeObject in self.myObjects) {
             NSString *recipeName =[recipeObject valueForKey:@"name"];
+            NSString *ingredients =[recipeObject valueForKey:@"ingredients"];
+            NSString *tags =[recipeObject valueForKey:@"tags"];
             NSLog(@"recipeName:%@" ,recipeName);
+            NSLog(@"ingredients:%@" ,ingredients);
+            NSLog(@"tags:%@" ,tags);
             
-            NSRange titleResultsRange = [recipeName rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            NSRange nameResultRange = [recipeName rangeOfString:searchText options:NSCaseInsensitiveSearch];
             
-            if (titleResultsRange.length > 0)
-            {
+            NSRange ingredientsResultRange = [ingredients rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            
+            NSRange tagsResultRange = [tags rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            
+            if (nameResultRange.length > 0 || ingredientsResultRange.length>0 || tagsResultRange.length > 0){
                 [self.filteredObjcets  addObject:recipeObject];
 
             }
