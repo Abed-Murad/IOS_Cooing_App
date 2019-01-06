@@ -18,7 +18,7 @@
 
 @property (strong) NSMutableArray * myObjects;
 @property (strong) NSMutableArray *filteredObjcets ;
-@property BOOL isSearching ;
+@property  BOOL isSearching ;
 @end
 
 @implementation ViewController
@@ -40,7 +40,7 @@
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
     self.myObjects = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    self.filteredObjcets = [self.myObjects copy];
+    self.filteredObjcets = [[NSMutableArray alloc] initWithArray:self.myObjects];
 
     [self.collectionView reloadData];
     
@@ -112,10 +112,22 @@
     
     if (searchText.length != 0) {
         [self.filteredObjcets removeAllObjects];
-        [self.filteredObjcets   addObject:[_myObjects firstObject]];
+        for (NSManagedObject *recipeObject in self.myObjects) {
+            NSString *recipeName =[recipeObject valueForKey:@"name"];
+            NSLog(@"recipeName:%@" ,recipeName);
+            
+            NSRange titleResultsRange = [recipeName rangeOfString:searchText options:NSCaseInsensitiveSearch];
+            
+            if (titleResultsRange.length > 0)
+            {
+                [self.filteredObjcets  addObject:recipeObject];
+
+            }
+            
+        }
     }
     else {
-        self.filteredObjcets = self.myObjects;
+        self.filteredObjcets = [[NSMutableArray alloc] initWithArray:self.myObjects];
     }
     
     [self.collectionView reloadData];
