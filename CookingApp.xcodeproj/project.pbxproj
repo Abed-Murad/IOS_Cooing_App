@@ -320,6 +320,7 @@
 				B53EA3E621DC13BC00546A34 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 

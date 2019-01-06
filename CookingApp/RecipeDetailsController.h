@@ -9,7 +9,8 @@
 #import <UIKit/UIKit.h>
 #import "CoreData/Coredata.h"
 
-@interface RecipeDetailsController : UIViewController
+@interface RecipeDetailsController : UIViewController<UICollectionViewDelegate, UICollectionViewDataSource>
+
 @property (weak, nonatomic) IBOutlet UILabel *nameTextView;
 @property (weak, nonatomic) IBOutlet UILabel *ingredientsTextView;
 @property (weak, nonatomic) IBOutlet UILabel *caloriesTextView;
@@ -18,5 +19,6 @@
 @property (weak, nonatomic) IBOutlet UILabel *nopTextView;
 
 @property (weak, nonatomic) IBOutlet UILabel *quantitesTextView;
+
 @property (strong , nonatomic)NSManagedObject *recipe ;
 @end
