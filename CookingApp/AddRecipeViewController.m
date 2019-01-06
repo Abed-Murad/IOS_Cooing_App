@@ -49,8 +49,7 @@
     NSURL *path = [info valueForKey:UIImagePickerControllerReferenceURL];
     
     if (imageCount < 1) {
-        [self.firstImageView setImage:(image)];
-        imageCount ++ ;
+	        imageCount ++ ;
     }else if (imageCount < 2){
         [self.secondImageVIew setImage:(image)];
         imageCount ++ ;

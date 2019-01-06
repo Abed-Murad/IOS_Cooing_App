@@ -17,7 +17,8 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 
 @property (strong) NSMutableArray * myObjects;
-
+@property (strong) NSMutableArray *filteredObjcets ;
+@property BOOL isSearching ;
 @end
 
 @implementation ViewController
@@ -39,8 +40,11 @@
     NSManagedObjectContext *managedObjectContext = [self managedObjectContext];
     NSFetchRequest *fetchRequest = [[NSFetchRequest alloc] initWithEntityName:@"Recipe"];
     self.myObjects = [[managedObjectContext executeFetchRequest:fetchRequest error:nil] mutableCopy];
-    
+    self.filteredObjcets = [self.myObjects copy];
+
     [self.collectionView reloadData];
+    
+    
 }
 
 - (void)viewDidLoad {
@@ -48,6 +52,11 @@
     [[UINavigationBar appearance] setBarTintColor:[UIColor yellowColor]];
     //CoolectionView Start
     self.collectionView.delegate = self ;
+    self.collectionView.dataSource = self;
+    self.searchbar.delegate = self;
+    
+    
+    
     [self.collectionView reloadData];
     //CollectionView End
 }
@@ -59,8 +68,13 @@
 - (NSInteger)collectionView:(UICollectionView *)collectionView
      numberOfItemsInSection:(NSInteger)section
 {
-    return self.myObjects.count;
+    return self.filteredObjcets.count;
 }
+
+
+
+
+
 
 //OnCollectionView Item Create
 - (__kindof UICollectionViewCell *) collectionView:(UICollectionView *)
@@ -68,9 +82,9 @@
    
     static NSString *cellIdentifer = @"RecipeCell";
     RecipeItemCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:cellIdentifer forIndexPath:indexPath];
-    
+
     //get The Recipe Name
-    NSManagedObject *device = [self.myObjects objectAtIndex:indexPath.row];
+    NSManagedObject *device = [self.filteredObjcets objectAtIndex:indexPath.row];
     NSString *recipeName =[device valueForKey:@"name"];
     
     UIImage *image = [UIImage imageWithData:[device valueForKey:@"first_photo"]];
@@ -92,9 +106,25 @@
     self.selectedRecipe = [self.myObjects objectAtIndex:indexPath.row];
     recipeDetailsController.recipe = self.selectedRecipe;
     [self.navigationController pushViewController:recipeDetailsController animated:YES];
+}
+
+- (void)searchBar:(UISearchBar *)searchBar textDidChange:(NSString *)searchText {
     
+    if (searchText.length != 0) {
+        [self.filteredObjcets removeAllObjects];
+        [self.filteredObjcets   addObject:[_myObjects firstObject]];
+    }
+    else {
+        self.filteredObjcets = self.myObjects;
+    }
+    
+    [self.collectionView reloadData];
     
 }
+
+
+
+
 /*CollectionView DataSource and Delegate Protocals Methods End*/
 
 - (IBAction)onAddClcik:(id)sender {

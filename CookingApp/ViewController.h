@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CoreData/Coredata.h"
-@interface ViewController : UIViewController<UICollectionViewDataSource, UICollectionViewDelegate>
+@interface ViewController : UIViewController<UISearchBarDelegate, UISearchDisplayDelegate ,UICollectionViewDataSource, UICollectionViewDelegate>
 @property (weak, nonatomic) IBOutlet UIBarButtonItem *addReicpeBtn;
+@property (weak, nonatomic) IBOutlet UISearchBar *searchbar;
 @property NSManagedObject *selectedRecipe  ;
 
 @end

@@ -227,7 +227,7 @@
             </objects>
             <point key="canvasLocation" x="1192" y="-1179"/>
         </scene>
-        <!--View Controller-->
+        <!--Recipes App-->
         <scene sceneID="0RB-o3-pFc">
             <objects>
                 <viewController id="FTc-8E-fVk" customClass="ViewController" sceneMemberID="viewController">
@@ -240,7 +240,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="YaD-NV-vDe">
-                                <rect key="frame" x="0.0" y="0.0" width="300" height="560"/>
+                                <rect key="frame" x="0.0" y="108" width="300" height="452"/>
                                 <color key="backgroundColor" red="0.86035195030309253" green="1" blue="0.97635646783872698" alpha="1" colorSpace="calibratedRGB"/>
                                 <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="sGB-aA-C8O">
                                     <size key="itemSize" width="100" height="123"/>
@@ -256,9 +256,6 @@
                                             <rect key="frame" x="0.0" y="0.0" width="100" height="123"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
-                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="gBh-CC-VMP">
-                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
-                                                </imageView>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Recipe Name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ab4-Zq-aN8">
                                                     <rect key="frame" x="4" y="103" width="96" height="20"/>
                                                     <constraints>
@@ -268,6 +265,9 @@
                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                     <nil key="highlightedColor"/>
                                                 </label>
+                                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="gBh-CC-VMP">
+                                                    <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
+                                                </imageView>
                                             </subviews>
                                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                         </view>
@@ -280,6 +280,7 @@
                                             <constraint firstItem="gBh-CC-VMP" firstAttribute="leading" secondItem="UuF-F7-VYk" secondAttribute="leading" id="ex8-9a-eRW"/>
                                             <constraint firstAttribute="bottom" secondItem="ab4-Zq-aN8" secondAttribute="bottom" id="m5Q-hI-cEw"/>
                                         </constraints>
+                                        <size key="customSize" width="100" height="123"/>
                                         <connections>
                                             <outlet property="recipeImage" destination="gBh-CC-VMP" id="aDb-C5-pJq"/>
                                             <outlet property="recipeitemLabel" destination="ab4-Zq-aN8" id="Us7-CP-y98"/>
@@ -290,16 +291,23 @@
                                     <outlet property="dataSource" destination="FTc-8E-fVk" id="f47-SQ-ubQ"/>
                                 </connections>
                             </collectionView>
+                            <searchBar contentMode="redraw" translatesAutoresizingMaskIntoConstraints="NO" id="7Wl-4j-jlL">
+                                <rect key="frame" x="0.0" y="64" width="300" height="44"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </searchBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="YaD-NV-vDe" firstAttribute="top" secondItem="UiC-DC-QGQ" secondAttribute="top" id="AFV-Nr-2oY"/>
-                            <constraint firstAttribute="trailing" secondItem="YaD-NV-vDe" secondAttribute="trailing" id="QnI-j2-hAp"/>
-                            <constraint firstItem="YaD-NV-vDe" firstAttribute="leading" secondItem="UiC-DC-QGQ" secondAttribute="leading" id="ZT6-FE-7iN"/>
-                            <constraint firstItem="msy-nZ-KS5" firstAttribute="top" secondItem="YaD-NV-vDe" secondAttribute="bottom" constant="40" id="mnb-iL-ren"/>
+                            <constraint firstAttribute="trailing" secondItem="7Wl-4j-jlL" secondAttribute="trailing" id="3v7-e6-njG"/>
+                            <constraint firstItem="msy-nZ-KS5" firstAttribute="top" secondItem="YaD-NV-vDe" secondAttribute="bottom" constant="40" id="Acw-RO-kX5"/>
+                            <constraint firstItem="7Wl-4j-jlL" firstAttribute="leading" secondItem="YaD-NV-vDe" secondAttribute="leading" id="For-iq-2oH"/>
+                            <constraint firstItem="7Wl-4j-jlL" firstAttribute="trailing" secondItem="YaD-NV-vDe" secondAttribute="trailing" id="HnP-fX-jcK"/>
+                            <constraint firstItem="YaD-NV-vDe" firstAttribute="top" secondItem="7Wl-4j-jlL" secondAttribute="bottom" id="HwG-pV-MB1"/>
+                            <constraint firstItem="7Wl-4j-jlL" firstAttribute="top" secondItem="G9R-0j-qOm" secondAttribute="bottom" id="R2e-fH-daZ"/>
+                            <constraint firstItem="7Wl-4j-jlL" firstAttribute="leading" secondItem="UiC-DC-QGQ" secondAttribute="leading" id="adg-Je-QdU"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" title="View Controller" id="a2Y-9v-FnH">
+                    <navigationItem key="navigationItem" title="Recipes App" id="a2Y-9v-FnH">
                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="f5z-q2-rpv">
                             <connections>
                                 <action selector="onAddClcik:" destination="FTc-8E-fVk" id="KXr-mj-zKG"/>
@@ -310,6 +318,7 @@
                     <size key="freeformSize" width="300" height="600"/>
                     <connections>
                         <outlet property="collectionView" destination="YaD-NV-vDe" id="Ysb-Ec-xZ9"/>
+                        <outlet property="searchbar" destination="7Wl-4j-jlL" id="bJN-E6-IaY"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Bde-PS-opj" userLabel="First Responder" sceneMemberID="firstResponder"/>
