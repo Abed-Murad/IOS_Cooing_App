@@ -12,11 +12,11 @@
 @interface RecipeDetailsController : UIViewController
 @property (weak, nonatomic) IBOutlet UILabel *nameTextView;
 @property (weak, nonatomic) IBOutlet UILabel *ingredientsTextView;
-@property (weak, nonatomic) IBOutlet UILabel *quantitiesTextView;
-@property (weak, nonatomic) IBOutlet UILabel *nopTextView;
 @property (weak, nonatomic) IBOutlet UILabel *caloriesTextView;
 @property (weak, nonatomic) IBOutlet UILabel *tagsTextView;
 @property (weak, nonatomic) IBOutlet UIImageView *firstImageView;
+@property (weak, nonatomic) IBOutlet UILabel *nopTextView;
 
+@property (weak, nonatomic) IBOutlet UILabel *quantitesTextView;
 @property (strong , nonatomic)NSManagedObject *recipe ;
 @end

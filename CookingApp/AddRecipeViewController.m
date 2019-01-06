@@ -25,6 +25,8 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    imageCount = 0;
+    
     // Do any additional setup after loading the view.
 }
 
@@ -50,6 +52,7 @@
     
     if (imageCount < 1) {
 	        imageCount ++ ;
+        [self.firstImageView setImage:(image)];
     }else if (imageCount < 2){
         [self.secondImageVIew setImage:(image)];
         imageCount ++ ;
@@ -67,21 +70,21 @@
     
     // Create a new managed object
     NSManagedObject *newRecipe = [NSEntityDescription insertNewObjectForEntityForName:@"Recipe" inManagedObjectContext:context];
+    
     [newRecipe setValue:self.nameTextView.text forKey:@"name"];
     [newRecipe setValue:self.ingradientsTextView.text forKey:@"ingredients"];
+    [newRecipe setValue:self.tagsTextView.text forKey:@"tags"];
+    [newRecipe setValue:self.caloriesTextView.text forKey:@"calories"];
+
+
     [newRecipe setValue:self.quantityTextView.text forKey:@"quantites"];
     [newRecipe setValue:self.nopTextView.text forKey:@"nop"];
-    [newRecipe setValue:self.caloriesTextView.text forKey:@"calories"];
-    
-//    [newRecipe setValue:@"firstImage" forKey:@"tags"];
-//    [newRecipe setValue:@"secondImage"forKey:@"first_photo"];
-//    [newRecipe setValue:@"thirdImage" forKey:@"second_photo"];
-    
 
-//    [newRecipe setValue:self.firstImageView.image forKey:@"first_photo"];
-//    [newRecipe setValue:self.secondImageVIew.image forKey:@"second_photo"];
-//    [newRecipe setValue:self.thiredImageView.image forKey:@"third_photo"];
     
+    NSLog(@"quantites:%@" ,self.quantityTextView.text);
+    NSLog(@"quantites:%@" ,self.nopTextView.text);
+
+
     NSData *imageData1 = UIImagePNGRepresentation(self.firstImageView.image);
     NSData *imageData2 = UIImagePNGRepresentation(self.secondImageVIew.image);
     NSData *imageData3 = UIImagePNGRepresentation(self.thiredImageView.image);
@@ -96,7 +99,8 @@
         NSLog(@"Can't Save! %@ %@", error, [error localizedDescription]);
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self dismissViewControllerAnimated:NO completion:nil];
+
     
 
 }

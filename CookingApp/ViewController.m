@@ -116,8 +116,11 @@
             NSString *recipeName =[recipeObject valueForKey:@"name"];
             NSString *ingredients =[recipeObject valueForKey:@"ingredients"];
             NSString *tags =[recipeObject valueForKey:@"tags"];
+            
             NSLog(@"recipeName:%@" ,recipeName);
-            NSLog(@"ingredients:%@" ,ingredients);
+            NSLog(@"recipeName:%@" ,recipeName);
+            NSLog(@"quantites:%@" ,[recipeObject valueForKey:@"quantites"]);
+            NSLog(@"nop:%@" ,[recipeObject valueForKey:@"nop"]);
             NSLog(@"tags:%@" ,tags);
             
             NSRange nameResultRange = [recipeName rangeOfString:searchText options:NSCaseInsensitiveSearch];
